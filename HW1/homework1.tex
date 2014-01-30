@@ -2,6 +2,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{centernot}
+\DeclareMathOperator*{\Union}{\bigcup}
+
 \begin{document}
 
 \title{EE351k: Homework 1}
@@ -78,5 +80,12 @@ Given universe, \( \Omega = \{OO, OE, EE, EO\} \)
 
 % Problem 7
 \subsection{}
+Probability of n keys, \( \mathbb{P}(A_0 \cup A_1 \cup ... \cup A_n) \) \\
+Using the formula taken for granted from the homework, and the fact that each event is independent...
+\begin{align*}
+\mathbb{P}(no~keys) = \sum\limits_{i=1}^n (-1)^{(i+1)} * \frac{1}{n} * \dbinom{n}{i}
+\end{align*}
+This value does tend to 0 as \(n \rightarrow \infty \).
+It also appears that \( \mathbb{P}(no~keys) \equiv \dfrac{1}{n} \).
 
 \end{document}
