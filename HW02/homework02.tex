@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\DeclareMathOperator*{\Union}{\bigcup}
+
+\begin{document}
+
+\title{EE351k: Homework 2}
+\author{Anthony Weems}
+\date{\today}
+\maketitle
+
+% Problem 1
+\subsection{}
+\begin{enumerate}
+    \item[a.] \( \mathbb{P}(two~kings,~one~ace) = \dfrac{\binom{4}{2} \binom{4}{1} 11!}{\binom{52}{13}} \)
+    \item[b.] \( \mathbb{P}(one~ace|two~kings) = \dfrac{\binom{4}{2} \binom{4}{1} 11!}{\binom{4}{2}12!} \)
+\end{enumerate}
+
+% Problem 2
+\subsection{}
+Counting problem:
+
+\( \#~of~1~color~only = 3 \)
+
+\( \#~of~2~colors = 3*2^k \)
+
+\( \#~of~total~combinations = 3^k \)
+
+\( \mathbb{P}(not~all~colors) = \dfrac{3+3*2^k}{3^k} \)
+
+% Problem 3
+\subsection{}
+
+\begin{enumerate}
+    \item[a.] \( \mathbb{P} = \dfrac{\binom{15}{6}}{\binom{25+15+35}{6}} \)
+    \item[b.] \( \mathbb{P} = \dfrac{\binom{25}{2} \binom{15}{3} \binom{35}{1}}{\binom{25+15+35}{6}} \)
+\end{enumerate}
+
+% Problem 4
+\subsection{}
+Conditional Probability: \( \mathbb{P}(A|B) = \dfrac{\mathbb{P}(B|A)\mathbb{P}(A)}{\mathbb{P}(B|A)\mathbb{P}(A) + \mathbb{P}(B|A^c)\mathbb{P}(A^c)} \)
+
+\( \mathbb{P}(D|T) = \dfrac{0.98*0.6}{0.98*0.6 + 0.02*0.4} = 0.9866 \)
+
+% Problem 5
+\subsection{}
+
+\( \mathbb{P}(Four~heads \cap Dice_4) = \mathbb{P}(Four~heads)\mathbb{P}(Dice_4) = \dfrac{1}{96} \)
+
+% Problem 6
+\subsection{}
+\begin{align*}
+\mathbb{P}(C | A \cap B) &= \mathbb{P}(C | B) \\
+\dfrac{\mathbb{P}(C \cap A \cap B)}{\mathbb{P}(A \cap B)} &= \dfrac{\mathbb{P}(C \cap B)}{\mathbb{P}(B)}\\
+\dfrac{\mathbb{P}(C \cap A \cap B)}{\mathbb{P}(C \cap B)} &= \dfrac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}\\
+\mathbb{P}(A | B \cap C) &= \mathbb{P}(A | B)
+\end{align*}
+
+% Problem 7
+\subsection{}
+Proof by induction:
+
+\( n = 0 \implies \mathbb{P} = \frac{1}{2} [1+\frac{2}{3}^0] = 1 \)
+\\
+Assuming n case, attempt n+1 case \\
+If the previous n were even, the probability that n+1 is also even...
+
+\( \mathbb{P} = \frac{5}{6} \frac{1}{2} [1+\frac{2}{3}^n] = \frac{1}{2} [1+\frac{2}{3}^{n+1}] \)
+\\
+If the previous n were odd, the probability that n+1 is even...
+
+\( \mathbb{P} = \frac{1}{6} (1 - \frac{1}{2} [1+\frac{2}{3}^n]) = \frac{1}{2} [1+\frac{2}{3}^{n+1}] \)
+
+% Problem 8
+\subsection{}
+
+\begin{enumerate}
+    \item[a.] \( \frac{1}{2}^n \)
+    \item[b.] \( \binom{n}{n/2} \frac{1}{2^n} \)
+    \item[c.] \( \binom{n}{2} \frac{1}{2^n} \)
+    \item[d.] \( \sum\limits_{i=2}^n \binom{n}{i} \frac{1}{2^n} \)
+\end{enumerate}
+
+
+\end{document}
