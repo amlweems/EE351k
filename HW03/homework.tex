@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\DeclareMathOperator*{\Union}{\bigcup}
+
+\begin{document}
+
+\title{EE351k: Homework 2}
+\author{Anthony Weems}
+\date{\today}
+\maketitle
+
+% Problem 1
+\subsection{}
+
+\begin{align*}
+    \mathbb{P}(S_{dot}|R_{dot}) &= \dfrac{\mathbb{P}(R_{dot}|S_{dot}) * \mathbb{P}(S_{dot})}{\mathbb{P}(R_{dot}|S_{dot}) * \mathbb{P}(S_{dot}) + \mathbb{P}(R_{dot}|S_{dash}) * \mathbb{P}(S_{dash})} \\
+    &=\dfrac{\frac{5}{6} * \frac{2}{3}}{\frac{5}{6} * \frac{2}{3} + \frac{1}{5} * \frac{1}{3}} \\
+    &=\dfrac{25}{28}
+\end{align*}
+
+% Problem 2
+\subsection{}
+
+\begin{enumerate}
+    \item[a.] Second ball is magenta: \\
+        Event \(M_r\) = \(r^{th}\) urn, second ball magenta
+        \begin{align*}
+            \mathbb{P}(M_r) &= \dfrac{\binom{r-1}{1}}{\binom{n-1}{1}} * \dfrac{\binom{n-r}{1}}{\binom{n-2}{1}} + \dfrac{\binom{n-r}{1}}{\binom{n-1}{1}} * \dfrac{\binom{n-r-1}{1}}{\binom{n-2}{1}} \\
+            &= \dfrac{(r-1)(n-r) + (n-r)(n-r-1)}{(n-1)(n-2)} \\
+            &= \dfrac{(n-r)((r-1)+(n-r-1))}{(n-1)(n-2)} \\
+            &= \dfrac{(n-r)}{(n-1)}
+        \end{align*}
+        Event A = random urn, second ball magenta
+        \begin{align*}
+            \mathbb{P}(A) &= \frac{1}{n}\sum\limits_{r=1}^{n}\mathbb{P}(M_r) \\
+            &= \frac{1}{n}\sum\limits_{r=1}^{n}\frac{(n-r)}{(n-1)} \\
+            &= \frac{1}{n} * \frac{n}{2} \\
+            &= \frac{1}{2}
+        \end{align*}
+    \item[b.] Second ball is magenta given first is magenta: \\
+        Event \(M_r\) = \(r^{th}\) urn, second ball magenta
+        \begin{align*}
+            \mathbb{P}(M_r) &= \dfrac{(n-r)}{(n-1)}
+        \end{align*}
+        Event \(Q_r\) = \(r^{th}\) urn, first ball magenta
+        \begin{align*}
+            \mathbb{P}(Q_r) &= \dfrac{\binom{n-r}{1}}{\binom{n-1}{1}} \\
+            &= \dfrac{(n-r)}{(n-1)}
+        \end{align*}
+        Event \(R_r\) = \(r^{th}\) urn, second ball magenta given first ball magenta
+        \begin{align*}
+            \mathbb{P}(A) &= \mathbb{P}(M_r|Q_r) = \dfrac{\mathbb{P}(M_r \cap Q_r)}{\mathbb{P}(Q_r)} \\
+            &= \dfrac{\dfrac{n-r}{n-1} * \dfrac{n-r-1}{n-2}}{\frac{n-r}{n-1}} \\
+            &= \dfrac{n-r-1}{n-2} \\
+        \end{align*}
+        Event A = random urn, second ball magenta given first ball magenta
+        \begin{align*}
+            \mathbb{P}(A) &= \frac{1}{n}\sum\limits_{r=1}^{n}\mathbb{P}(R_r) \\
+            &= \sum\limits_{r=1}^{n}\frac{n-r-1}{n^2-2n} \\
+            &= \dfrac{n-3}{2(n-2)}
+        \end{align*}
+\end{enumerate}
+
+% Problem 3
+\subsection{}
+
+% Problem 4
+\subsection{}
+
+% Problem 5
+\subsection{}
+
+% Problem 6
+\subsection{}
+
+\end{document}
