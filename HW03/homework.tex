@@ -16,8 +16,7 @@
 
 \begin{align*}
     \mathbb{P}(S_{dot}|R_{dot}) &= \dfrac{\mathbb{P}(R_{dot}|S_{dot}) * \mathbb{P}(S_{dot})}{\mathbb{P}(R_{dot}|S_{dot}) * \mathbb{P}(S_{dot}) + \mathbb{P}(R_{dot}|S_{dash}) * \mathbb{P}(S_{dash})} \\
-    &=\dfrac{\frac{5}{6} * \frac{2}{3}}{\frac{5}{6} * \frac{2}{3} + \frac{1}{5} * \frac{1}{3}} \\
-    &=\dfrac{25}{28}
+    &=\dfrac{\frac{5}{6} * \frac{2}{3}}{\frac{5}{6} * \frac{2}{3} + \frac{1}{5} * \frac{1}{3}} =\dfrac{25}{28}
 \end{align*}
 
 % Problem 2
@@ -25,7 +24,7 @@
 
 \begin{enumerate}
     \item[a.] Second ball is magenta: \\
-        Event \(M_r\) = \(r^{th}\) urn, second ball magenta
+        Event $M_r$ = $r^{th}$ urn, second ball magenta
         \begin{align*}
             \mathbb{P}(M_r) &= \dfrac{\binom{r-1}{1}}{\binom{n-1}{1}} * \dfrac{\binom{n-r}{1}}{\binom{n-2}{1}} + \dfrac{\binom{n-r}{1}}{\binom{n-1}{1}} * \dfrac{\binom{n-r-1}{1}}{\binom{n-2}{1}} \\
             &= \dfrac{(r-1)(n-r) + (n-r)(n-r-1)}{(n-1)(n-2)} \\
@@ -40,20 +39,20 @@
             &= \frac{1}{2}
         \end{align*}
     \item[b.] Second ball is magenta given first is magenta: \\
-        Event \(M_r\) = \(r^{th}\) urn, second ball magenta
+        Event $M_r$ = $r^{th}$ urn, second ball magenta
         \begin{align*}
             \mathbb{P}(M_r) &= \dfrac{(n-r)}{(n-1)}
         \end{align*}
-        Event \(Q_r\) = \(r^{th}\) urn, first ball magenta
+        Event $Q_r$ = $r^{th}$ urn, first ball magenta
         \begin{align*}
             \mathbb{P}(Q_r) &= \dfrac{\binom{n-r}{1}}{\binom{n-1}{1}} \\
             &= \dfrac{(n-r)}{(n-1)}
         \end{align*}
-        Event \(R_r\) = \(r^{th}\) urn, second ball magenta given first ball magenta
+        Event $R_r$ = $r^{th}$ urn, second ball magenta given first ball magenta
         \begin{align*}
             \mathbb{P}(A) &= \mathbb{P}(M_r|Q_r) = \dfrac{\mathbb{P}(M_r \cap Q_r)}{\mathbb{P}(Q_r)} \\
             &= \dfrac{\dfrac{n-r}{n-1} * \dfrac{n-r-1}{n-2}}{\frac{n-r}{n-1}} \\
-            &= \dfrac{n-r-1}{n-2} \\
+            &= \dfrac{n-r-1}{n-2}
         \end{align*}
         Event A = random urn, second ball magenta given first ball magenta
         \begin{align*}
@@ -65,14 +64,37 @@
 
 % Problem 3
 \subsection{}
+$\mathbb{P}(X=0) = \dfrac{\binom{5}{0}\binom{20}{4}}{\binom{25}{4}} = 0.3830$ \\
+$\mathbb{P}(X=1) = \dfrac{\binom{5}{1}\binom{20}{3}}{\binom{25}{4}} = 0.4506$ \\
+$\mathbb{P}(X=2) = \dfrac{\binom{5}{2}\binom{20}{2}}{\binom{25}{4}} = 0.1502$ \\
+$\mathbb{P}(X=3) = \dfrac{\binom{5}{3}\binom{20}{1}}{\binom{25}{4}} = 0.0158$ \\
+$\mathbb{P}(X=4) = \dfrac{\binom{5}{4}\binom{20}{0}}{\binom{25}{4}} = 0.0004$
 
 % Problem 4
 \subsection{}
 
+\begin{enumerate}
+	\item[a.] $\mathbb{P}(D) = \mathbb{P}(D \cap B_1) + \mathbb{P}(D \cap B_2) + \mathbb{P}(D \cap B_3)
+	                         = \frac{1}{3} * (\frac{1}{8} + \frac{3}{8} + \frac{2}{8}) = \frac{1}{4}$
+	\item[b.] $\mathbb{P}(B_2 | D) = \dfrac{\mathbb{P}(B_2) * \mathbb{P}(D | B_2)}{\mathbb{P}(D)}
+                                   = \dfrac{\frac{1}{3} * \frac{3}{8}}{\frac{1}{4}} = \frac{1}{2}$
+\end{enumerate}
+
 % Problem 5
 \subsection{}
+$q := 1 - p$
+\begin{enumerate}
+	\item[a.] $\mathbb{P}(A) = \sum\limits_{n=0}^{\infty}p * q^{3n} 
+                               = p * \sum\limits_{n=0}^{\infty}{q^3}^n 
+                               = \dfrac{p}{1 - q^3}$
+	\item[b.] $\mathbb{P}(B) = \sum\limits_{n=0}^{\infty}p * q^{3n + 1}
+                               = p * q * \sum\limits_{n=0}^{\infty}{q^3}^n
+                               = \dfrac{p * q}{1 - q^3}$
+\end{enumerate}
 
 % Problem 6
 \subsection{}
+$X_{r_1}$ is the number of balls in $r_1$ boxes \\
+$p_{X_{r_1}}(k) = \binom{n}{k}(\frac{r_1}{n})^{k}(1 - \frac{r_1}{n})^{n-k} $
 
 \end{document}
