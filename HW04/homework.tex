@@ -15,86 +15,79 @@
 \subsection{}
 
 \begin{align*}
-    \mathbb{P}(S_{dot}|R_{dot}) &= \dfrac{\mathbb{P}(R_{dot}|S_{dot}) * \mathbb{P}(S_{dot})}{\mathbb{P}(R_{dot}|S_{dot}) * \mathbb{P}(S_{dot}) + \mathbb{P}(R_{dot}|S_{dash}) * \mathbb{P}(S_{dash})} \\
-    &=\dfrac{\frac{5}{6} * \frac{2}{3}}{\frac{5}{6} * \frac{2}{3} + \frac{1}{5} * \frac{1}{3}} =\dfrac{25}{28}
+	\mathbb{E}[X] = \mathbb{E}[Y] = 0 \\
+	\sigma_X^2 = \sigma_Y^2 = 1 \\
+	\mathbb{E}[X^2] = \mathbb{E}[X^2] = 1 \\
+	\mathbb{E}[XY]^2 \le \mathbb{E}[X]^2 \mathbb{E}[Y]^2 \\
+	p^2 = \mathbb{E}[XY]^2 \le 0 \\
+	1 + \sqrt{1 - p^2} \ge 2 \\
+	\mathbb{E}[max\{X^2, Y^2\}] &= \mathbb{E}[\frac{1}{2}(X^2 + Y^2) + \frac{1}{2}\mathbb{E}[~|X^2 - Y^2|~] \\
+	&= \frac{~\mathbb{E}[ X^2 + Y^2 ] + \mathbb{E}[~|X^2 - Y^2|~]}{2} \\
+	&= 1 + \frac{\mathbb{E}[~|X^2 - Y^2|~]}{2} \\
+	&\le 2 \le 1 + \sqrt{1 - p^2}
 \end{align*}
 
 % Problem 2
 \subsection{}
 
-\begin{enumerate}
-    \item[a.] Second ball is magenta: \\
-        Event $M_r$ = $r^{th}$ urn, second ball magenta
-        \begin{align*}
-            \mathbb{P}(M_r) &= \dfrac{\binom{r-1}{1}}{\binom{n-1}{1}} * \dfrac{\binom{n-r}{1}}{\binom{n-2}{1}} + \dfrac{\binom{n-r}{1}}{\binom{n-1}{1}} * \dfrac{\binom{n-r-1}{1}}{\binom{n-2}{1}} \\
-            &= \dfrac{(r-1)(n-r) + (n-r)(n-r-1)}{(n-1)(n-2)} \\
-            &= \dfrac{(n-r)((r-1)+(n-r-1))}{(n-1)(n-2)} \\
-            &= \dfrac{(n-r)}{(n-1)}
-        \end{align*}
-        Event A = random urn, second ball magenta
-        \begin{align*}
-            \mathbb{P}(A) &= \frac{1}{n}\sum\limits_{r=1}^{n}\mathbb{P}(M_r) \\
-            &= \frac{1}{n}\sum\limits_{r=1}^{n}\frac{(n-r)}{(n-1)} \\
-            &= \frac{1}{n} * \frac{n}{2} \\
-            &= \frac{1}{2}
-        \end{align*}
-    \item[b.] Second ball is magenta given first is magenta: \\
-        Event $M_r$ = $r^{th}$ urn, second ball magenta
-        \begin{align*}
-            \mathbb{P}(M_r) &= \dfrac{(n-r)}{(n-1)}
-        \end{align*}
-        Event $Q_r$ = $r^{th}$ urn, first ball magenta
-        \begin{align*}
-            \mathbb{P}(Q_r) &= \dfrac{\binom{n-r}{1}}{\binom{n-1}{1}} \\
-            &= \dfrac{(n-r)}{(n-1)}
-        \end{align*}
-        Event $R_r$ = $r^{th}$ urn, second ball magenta given first ball magenta
-        \begin{align*}
-            \mathbb{P}(A) &= \mathbb{P}(M_r|Q_r) = \dfrac{\mathbb{P}(M_r \cap Q_r)}{\mathbb{P}(Q_r)} \\
-            &= \dfrac{\dfrac{n-r}{n-1} * \dfrac{n-r-1}{n-2}}{\frac{n-r}{n-1}} \\
-            &= \dfrac{n-r-1}{n-2}
-        \end{align*}
-        Event A = random urn, second ball magenta given first ball magenta
-        \begin{align*}
-            \mathbb{P}(A) &= \frac{1}{n}\sum\limits_{r=1}^{n}\mathbb{P}(R_r) \\
-            &= \sum\limits_{r=1}^{n}\frac{n-r-1}{n^2-2n} \\
-            &= \dfrac{n-3}{2(n-2)}
-        \end{align*}
-\end{enumerate}
+\begin{center}
+	\begin{tabular}{l|*{5}{c|}r|}
+	\hline
+	4 & $\frac{1}{1296}$ &               0 &               0 &               0 &               0  \\ \hline
+	3 &   $\frac{1}{81}$ & $\frac{1}{324}$ &               0 &               0 &               0  \\ \hline
+	2 &   $\frac{2}{27}$ &  $\frac{1}{27}$ & $\frac{1}{216}$ &               0 &               0  \\ \hline
+	1 &  $\frac{16}{81}$ &  $\frac{8}{27}$ &  $\frac{1}{27}$ & $\frac{1}{324}$ &               0  \\ \hline
+	0 &  $\frac{8}{243}$ & $\frac{16}{81}$ &  $\frac{2}{27}$ &  $\frac{1}{81}$ & $\frac{1}{1296}$ \\ \hline
+	  & 0 & 1 & 2 & 3 & 4  \\
+	\end{tabular}
+\end{center}
 
 % Problem 3
 \subsection{}
-$\mathbb{P}(X=0) = \dfrac{\binom{5}{0}\binom{20}{4}}{\binom{25}{4}} = 0.3830$ \\
-$\mathbb{P}(X=1) = \dfrac{\binom{5}{1}\binom{20}{3}}{\binom{25}{4}} = 0.4506$ \\
-$\mathbb{P}(X=2) = \dfrac{\binom{5}{2}\binom{20}{2}}{\binom{25}{4}} = 0.1502$ \\
-$\mathbb{P}(X=3) = \dfrac{\binom{5}{3}\binom{20}{1}}{\binom{25}{4}} = 0.0158$ \\
-$\mathbb{P}(X=4) = \dfrac{\binom{5}{4}\binom{20}{0}}{\binom{25}{4}} = 0.0004$
+
+$
+p_X(k) = p_Y(k) =
+\begin{cases}
+	(p - 1) & \text{if } k = 0 \\
+	p       & \text{if } k = 1
+\end{cases} \\
+U = X + Y; \hspace{5 mm} V = |X - Y| \\
+E[U] = 0 * 1/4 + 1 * 1/2 + 2 * 1/4 = 1 \\
+E[V] = 0 * 1/2 + 1 * 1/2 = 1/2 \\
+E[UV] = 0 * 1/2 + 1 * 1/2 = 1/2 \\
+\\
+cov(U, V) = \mathbb{E}[(U - E[U])(V - E[V])] = \mathbb{E}[UV - 1/2U - V + 1/2] \\
+~~~~~~~~~~~~~~= 1/2 - 1/2 * 1 - 1/2 + 1/2 = 0 \implies \text{$U$ and $V$ are uncorrelated} \\
+\\
+\mathbb{P}(U = 0 | V = 1) = \mathbb{P}(X + Y = 0 | abs(X - Y) = 1) = 0 \\
+\mathbb{P}(U = 0) = 1/4 \\
+\\
+\text{Thus $U$ and $V$ are dependent and uncorrelated}
+$
 
 % Problem 4
 \subsection{}
 
-\begin{enumerate}
-	\item[a.] $\mathbb{P}(D) = \mathbb{P}(D \cap B_1) + \mathbb{P}(D \cap B_2) + \mathbb{P}(D \cap B_3)
-	                         = \frac{1}{3} * (\frac{1}{8} + \frac{3}{8} + \frac{2}{8}) = \frac{1}{4}$
-	\item[b.] $\mathbb{P}(B_2 | D) = \dfrac{\mathbb{P}(B_2) * \mathbb{P}(D | B_2)}{\mathbb{P}(D)}
-                                   = \dfrac{\frac{1}{3} * \frac{3}{8}}{\frac{1}{4}} = \frac{1}{2}$
-\end{enumerate}
-
 % Problem 5
 \subsection{}
-$q := 1 - p$
-\begin{enumerate}
-	\item[a.] $\mathbb{P}(A) = \sum\limits_{n=0}^{\infty}p * q^{3n} 
-                               = p * \sum\limits_{n=0}^{\infty}{q^3}^n 
-                               = \dfrac{p}{1 - q^3}$
-	\item[b.] $\mathbb{P}(B) = \sum\limits_{n=0}^{\infty}p * q^{3n + 1}
-                               = p * q * \sum\limits_{n=0}^{\infty}{q^3}^n
-                               = \dfrac{p * q}{1 - q^3}$
-\end{enumerate}
 
 % Problem 6
 \subsection{}
-$X_{r_1}$ is the number of balls in $r_1$ boxes \\
-$p_{X_{r_1}}(k) = \binom{n}{k}(\frac{r_1}{n})^{k}(1 - \frac{r_1}{n})^{n-k} $
+
+Yes.
+
+% Problem 7
+\subsection{}
+
+$
+\mathbb{E}[H] = \mathbb{E}[\mathbb{E}[H|D]] \\
+var[H] = \mathbb{E}[var(H|D)] + var(\mathbb{E}[H|D]) \\
+\\
+\mathbb{E}[H|D] = np = \mathbb{E}[D]/2 = 1/2*(1 + 7)/2 = 7/4 \\
+var(H|D) = np(1 -p) = D/4 \\
+\\
+\mathbb{E}[H] = 7/4 \\
+var(H) = \mathbb{E}[D/4] + var(D/2) = 7/8 + (1/2)^2(1/12*(6-1)^2) = 67/48 \\
+$
 
 \end{document}
